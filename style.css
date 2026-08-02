@@ -1046,128 +1046,483 @@ h1, h2, h3, h4 {
   font-family: var(--font-mono);
   font-size: 0.78rem;
   color: var(--text-dim);
+}/* --------------------------------------------------------------------------
+   13. LEETCODE PROFILE & GITHUB ACTIVITY SECTIONS
+   -------------------------------------------------------------------------- */
+.leetcode-section,
+.github-section {
+  padding: 80px 0;
 }
 
-.back-to-top-mono {
+.stats-section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.stats-main-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.5vw, 2.6rem);
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 8px;
+  display: inline-block;
+}
+
+.main-title-github {
+  color: var(--text-main);
+}
+
+.stats-sub-title {
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: 0.85rem;
   color: var(--text-muted);
+  margin-bottom: 12px;
 }
 
-.back-to-top-mono:hover {
+.stats-title-line {
+  width: 50px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--accent-color);
+  margin: 12px auto 0;
+}
+
+.line-github {
+  background: var(--accent-color);
+}
+
+/* 4 Top Stat Cards Grid */
+.stats-top-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
+  border-radius: 14px;
+  padding: 24px 16px;
+  text-align: center;
+  position: relative;
+  transition: transform var(--transition-smooth), border-color var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-color);
+  box-shadow: 0 12px 36px rgba(219, 90, 61, 0.15);
+}
+
+.stat-icon-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+.cyan-glow {
+  background: rgba(219, 90, 61, 0.12);
   color: var(--accent-color);
 }
 
-/* --------------------------------------------------------------------------
-   11. TOAST NOTIFICATION
-   -------------------------------------------------------------------------- */
-.toast {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  background: var(--glass-bg-strong);
-  -webkit-backdrop-filter: blur(var(--glass-blur-strong));
-  backdrop-filter: blur(var(--glass-blur-strong));
-  border: 1px solid rgba(219, 90, 61, 0.3);
-  border-radius: 10px;
+.gold-glow {
+  background: rgba(217, 170, 108, 0.12);
+  color: #d9aa6c;
+}
+
+.purple-glow {
+  background: rgba(142, 155, 132, 0.12);
+  color: #8e9b84;
+}
+
+.orange-glow {
+  background: rgba(236, 232, 223, 0.12);
   color: var(--text-main);
+}
+
+.stat-icon {
+  width: 22px;
+  height: 22px;
+}
+
+.stat-val {
+  font-family: var(--font-mono);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.2;
+}
+
+.stat-lbl {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
+.stat-sub {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  margin-top: 2px;
+}
+
+/* Progress Main Card (LeetCode & GitHub heatmap) */
+.progress-main-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
+  border-radius: 14px;
+  padding: 28px 32px;
+  margin-bottom: 30px;
+  transition: border-color var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.progress-main-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.25);
+}
+
+.progress-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header-title-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-icon {
+  width: 22px;
+  height: 22px;
+  color: var(--accent-color);
+}
+
+.gh-mark {
+  color: var(--text-main);
+}
+
+.header-title-group h3 {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.view-profile-link {
   font-family: var(--font-mono);
   font-size: 0.82rem;
-  padding: 14px 24px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  z-index: 1000;
-  transform: translateY(80px);
-  opacity: 0;
-  transition: transform 0.3s var(--ease-out-expo), opacity 0.3s var(--ease-out-expo);
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: color var(--transition-fast), transform var(--transition-fast);
 }
 
-.toast.show {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-/* --------------------------------------------------------------------------
-   12. ACCESSIBILITY & UTILITY ENHANCEMENTS
-   -------------------------------------------------------------------------- */
-
-/* Body scroll lock when mobile navigation drawer is active */
-body.no-scroll {
-  overflow: hidden !important;
-}
-
-/* Accessible focus outlines for keyboard navigation */
-a:focus-visible,
-button:focus-visible {
-  outline: 2px solid var(--accent-color);
-  outline-offset: 4px;
-  border-radius: 4px;
-}
-
-/* Fallbacks for browsers without backdrop-filter support */
-@supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
-  .site-header,
-  .main-nav.mobile-open,
-  .btn-secondary,
-  .code-editor-card,
-  .skill-category-block,
-  .badge-tag,
-  .coursework-panel,
-  .toast {
-    background: rgba(25, 25, 24, 0.96) !important;
-  }
-}
-
-/* Micro-interaction polish */
-.badge-tag {
-  transition: transform var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
-}
-
-.badge-tag:hover {
-  border-color: var(--accent-color);
+.view-profile-link:hover {
   color: var(--text-main);
-  transform: translateY(-2px);
+  transform: translateX(2px);
 }
 
-.project-entry {
-  transition: background-color var(--transition-smooth);
-  border-radius: 8px;
-  padding-left: 12px;
-  padding-right: 12px;
+/* Donut & Bars Layout */
+.progress-card-body {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 40px;
+  align-items: center;
 }
 
-.project-entry:hover {
-  background-color: rgba(236, 232, 223, 0.02);
+.donut-chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Print Stylesheet */
-@media print {
-  .site-header,
-  .mobile-toggle,
-  .hero-actions,
-  .scroll-indicator,
-  .toast,
-  #back-to-top {
-    display: none !important;
+.donut-svg-wrapper {
+  position: relative;
+  width: 160px;
+  height: 160px;
+}
+
+.donut-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.donut-track {
+  fill: none;
+  stroke: rgba(236, 232, 223, 0.08);
+  stroke-width: 12;
+}
+
+.donut-segment {
+  fill: none;
+  stroke: var(--accent-color);
+  stroke-width: 12;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(0 0 6px rgba(219, 90, 61, 0.4));
+}
+
+.donut-inner-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.donut-count {
+  font-family: var(--font-mono);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1;
+}
+
+.donut-total {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* Difficulty Bars */
+.difficulty-bars-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.difficulty-row {
+  display: grid;
+  grid-template-columns: 90px 1fr 90px;
+  align-items: center;
+  gap: 16px;
+}
+
+.difficulty-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.diff-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.dot-easy { background: #8e9b84; box-shadow: 0 0 6px rgba(142, 155, 132, 0.4); }
+.dot-medium { background: #d9aa6c; box-shadow: 0 0 6px rgba(217, 170, 108, 0.4); }
+.dot-hard { background: #db5a3d; box-shadow: 0 0 6px rgba(219, 90, 61, 0.4); }
+
+.diff-label {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-main);
+}
+
+.diff-progress-track {
+  position: relative;
+  background: rgba(236, 232, 223, 0.08);
+  height: 8px;
+  border-radius: 4px;
+  overflow: visible;
+}
+
+.diff-progress-fill {
+  height: 100%;
+  border-radius: 4px;
+  position: relative;
+  transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fill-easy { background: #8e9b84; }
+.fill-medium { background: #d9aa6c; }
+.fill-hard { background: #db5a3d; }
+
+.diff-thumb {
+  position: absolute;
+  right: -4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--text-main);
+  border: 2px solid var(--bg-secondary);
+  box-shadow: 0 0 6px rgba(236, 232, 223, 0.4);
+}
+
+.diff-count {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-main);
+  text-align: right;
+}
+
+.diff-denom {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  font-weight: 400;
+}
+
+/* GitHub Heatmap Calendar Grid */
+.contribution-graph-wrapper {
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.calendar-months-row {
+  display: flex;
+  margin-left: 36px;
+  margin-bottom: 8px;
+  gap: 0;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.month-label {
+  flex: 1;
+  text-align: left;
+}
+
+.calendar-body-grid {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.calendar-days-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 102px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  padding-top: 2px;
+}
+
+.calendar-matrix {
+  display: grid;
+  grid-template-columns: repeat(52, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  grid-auto-flow: column;
+  gap: 4px;
+}
+
+.cal-cell {
+  width: 11px;
+  height: 11px;
+  border-radius: 2px;
+  background-color: rgba(236, 232, 223, 0.06);
+  transition: transform 0.15s ease, filter 0.15s ease;
+  cursor: pointer;
+}
+
+.cal-cell:hover {
+  transform: scale(1.3);
+  z-index: 10;
+  filter: brightness(1.3);
+}
+
+.level-0 { background-color: rgba(236, 232, 223, 0.06); }
+.level-1 { background-color: rgba(219, 90, 61, 0.25); }
+.level-2 { background-color: rgba(219, 90, 61, 0.55); }
+.level-3 { background-color: rgba(219, 90, 61, 0.8); }
+.level-4 { background-color: var(--accent-color); box-shadow: 0 0 6px rgba(219, 90, 61, 0.6); }
+
+/* GitHub Extra Cards Grid */
+.github-extra-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.github-stat-box {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
+  border-radius: 14px;
+  padding: 20px;
+  transition: border-color var(--transition-smooth);
+}
+
+.github-stat-box:hover {
+  border-color: var(--accent-color);
+}
+
+.extra-box-title {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent-color);
+  margin-bottom: 16px;
+}
+
+.stats-badge-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.gh-badge-img {
+  width: 100%;
+  height: auto;
+  max-height: 195px;
+  object-fit: contain;
+}
+
+/* Media Queries for Responsive Stat Cards & Heatmap */
+@media (max-width: 992px) {
+  .stats-top-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  body {
-    background: #ffffff !important;
-    color: #111111 !important;
+  .progress-card-body {
+    grid-template-columns: 1fr;
+    gap: 28px;
   }
 
-  .container {
-    max-width: 100% !important;
-    padding: 0 !important;
-  }
-
-  .section {
-    padding: 24px 0 !important;
-    page-break-inside: avoid;
-  }
-
-  .btn {
-    border: 1px solid #333333 !important;
-    color: #000000 !important;
+  .github-extra-grid {
+    grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 576px) {
+  .stats-top-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .progress-main-card {
+    padding: 20px 16px;
+  }
+
+  .difficulty-row {
+    grid-template-columns: 70px 1fr 75px;
+    gap: 10px;
+  }
+}
+
 
