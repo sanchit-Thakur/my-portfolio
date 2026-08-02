@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sanchit Thakur — AI/ML & Full-Stack Engineer</title>
+  <meta name="description"
+    content="Personal software engineering portfolio of Sanchit Thakur. B.Tech in AI & Data Science student, full-stack developer, and machine learning enthusiast." />
+  <meta name="theme-color" content="#141413" />
+  <meta name="author" content="Sanchit Thakur" />
+  <meta name="keywords" content="Sanchit Thakur, AI Engineer, ML Engineer, Full-Stack Developer, Data Science, Portfolio, Mohali, CGC" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Sanchit Thakur — AI/ML & Full-Stack Engineer" />
+  <meta property="og:description" content="Personal software engineering portfolio of Sanchit Thakur. B.Tech in AI & Data Science student, full-stack developer, and machine learning enthusiast." />
+  <meta property="og:site_name" content="Sanchit Thakur Portfolio" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Sanchit Thakur — AI/ML & Full-Stack Engineer" />
+  <meta name="twitter:description" content="Personal software engineering portfolio of Sanchit Thakur. B.Tech in AI & Data Science student, full-stack developer, and machine learning enthusiast." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23141413'/><text x='50%' y='62%' font-family='monospace' font-weight='bold' font-size='42' fill='%23db5a3d' text-anchor='middle'>ST</text></svg>">
+
+  <!-- Font Pairing: Lora (Quirky Serif) & Space Mono (Raw Monospace) + Inter (Body Copy) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,500;0,600;0,700;1,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Sanchit Thakur",
+    "jobTitle": "AI/ML & Full-Stack Engineer",
+    "sameAs": [
+      "https://github.com/sanchit-thakur-git",
+      "https://www.linkedin.com/in/sanchit-thakur-13121905/"
+    ],
+    "alumniOf": {
+      "@type": "EducationalOrganization",
+      "name": "Chandigarh Group of Colleges, Mohali"
+    },
+    "knowsAbout": ["Python", "Machine Learning", "Data Science", "React.js", "Next.js", "SQL", "Full-Stack Development"]
+  }
+  </script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Asymmetric Header Navigation -->
+  <header class="site-header" id="site-header">
+    <div class="header-container">
+      <a href="#hero" class="logo" aria-label="Sanchit Thakur">
+        <span class="logo-mono">sanchit_thakur_</span>
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Main Navigation">
+        <a href="#about" class="nav-link">01. about</a>
+        <a href="#skills" class="nav-link">02. skills</a>
+        <a href="#projects" class="nav-link">03. projects</a>
+        <a href="#education" class="nav-link">04. education</a>
+        <a href="#contact" class="nav-link nav-cta">05. contact</a>
+      </nav>
+
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- 1. HERO SECTION (Above the Fold) -->
+    <section id="hero" class="hero-section">
+      <div class="container">
+        <div class="hero-layout">
+          <div class="hero-mono-intro reveal-item">
+            <span class="mono-tag">// aspiring data science & ai/ml engineer</span>
+            <span class="mono-tag">@ chandigarh group of colleges, mohali</span>
+          </div>
+
+          <h1 class="hero-title reveal-item">
+            Sanchit Thakur <br>
+            <span class="serif-accent">— AI/ML & Full-Stack Developer</span>
+          </h1>
+
+          <div class="hero-description reveal-item">
+            <p>
+              Aspiring Data Science and AI/ML Engineer with strong skills in Python, statistics, data analysis, and
+              machine learning. Building full-stack web applications and integrating intelligent models for enhanced
+              user experiences.
+            </p>
+          </div>
+
+          <!-- CTAs & Social Links -->
+          <div class="hero-actions reveal-item">
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+            <a href="assets/sanchit-resume.pdf" class="btn btn-secondary" target="_blank" download="Sanchit_Thakur_Resume.pdf">Download Resume</a>
+            <a href="#contact" class="btn btn-text">Contact Me ↗</a>
+          </div>
+
+          <div class="hero-socials reveal-item">
+            <span class="mono-label">find_me:</span>
+            <div class="social-links-list">
+              <a href="https://github.com/sanchit-thakur-git" target="_blank" rel="noopener"
+                class="social-link-mono">github</a>
+              <span>/</span>
+              <a href="https://www.linkedin.com/in/sanchit-thakur-13121905/" target="_blank" rel="noopener"
+                class="social-link-mono">linkedin</a>
+              <span>/</span>
+              <a href="mailto:sanchitthakur2345@gmail.com" class="social-link-mono">sanchitthakur2345@gmail.com</a>
+            </div>
+          </div>
+
+          <div class="scroll-indicator reveal-item">
+            <span class="mono-label">scroll_down</span>
+            <span class="down-arrow">↓</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. ABOUT SECTION -->
+    <section id="about" class="section about-section">
+      <div class="container">
+        <div class="about-grid">
+
+          <div class="about-text">
+            <div class="section-tag reveal-item">01 / ABOUT ME</div>
+            <h2 class="about-heading reveal-item">Solving real-world problems through data-driven insights.</h2>
+
+            <p class="bio-paragraph reveal-item">
+              I am currently pursuing a <strong>B.Tech in Artificial Intelligence & Data Science</strong> at Chandigarh
+              Group of Colleges, Mohali (2024 - 2028). My interest lies at the intersection of full-stack engineering
+              and intelligent machine learning systems.
+            </p>
+
+            <p class="bio-paragraph reveal-item">
+              I love building functional web platforms that solve concrete issues, whether that is analyzing academic
+              performance dashboards, processing audio queries using NLP, or modeling environmental recycling
+              operations.
+            </p>
+
+            <div class="aside-footnote reveal-item">
+              <span class="footnote-asterisk">*</span>
+              <p class="footnote-text">
+                Focusing on: Deepening my knowledge in data modeling, vector databases, and semantic search algorithms.
+              </p>
+            </div>
+          </div>
+
+          <!-- Handsome 2D Coder Avatar visual with cursor tracking -->
+          <div class="about-visual reveal-item">
+            <div class="character-card" id="character-card">
+              <div class="editor-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="editor-title">sanchit_coder.svg</span>
+              </div>
+              <div class="character-display">
+                <svg id="character-svg" viewBox="0 0 340 340" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <radialGradient id="bgGlow" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stop-color="#db5a3d" stop-opacity="0.3"/>
+                      <stop offset="100%" stop-color="#141413" stop-opacity="0"/>
+                    </radialGradient>
+                    <linearGradient id="hoodieGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#242422"/>
+                      <stop offset="100%" stop-color="#121211"/>
+                    </linearGradient>
+                    <linearGradient id="skinGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#f7dacb"/>
+                      <stop offset="100%" stop-color="#e8bda8"/>
+                    </linearGradient>
+                    <linearGradient id="laptopGrad" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#2c2c29"/>
+                      <stop offset="100%" stop-color="#181817"/>
+                    </linearGradient>
+                  </defs>
+
+                  <!-- Background Ambient Glow -->
+                  <circle cx="170" cy="170" r="150" fill="url(#bgGlow)"/>
+
+                  <!-- Body / Hoodie / Headphones around neck -->
+                  <g class="character-body">
+                    <!-- Shoulders & Hoodie -->
+                    <path d="M 50 320 Q 50 220 170 210 Q 290 220 290 320 Z" fill="url(#hoodieGrad)" stroke="#db5a3d" stroke-width="1.5" stroke-opacity="0.6"/>
+                    
+                    <!-- Hoodie Collar & Terracotta Zipper Details -->
+                    <path d="M 128 212 L 170 260 L 212 212" fill="none" stroke="#db5a3d" stroke-width="2.5" stroke-linecap="round"/>
+                    <line x1="170" y1="260" x2="170" y2="320" stroke="#db5a3d" stroke-width="2"/>
+                    <line x1="150" y1="240" x2="150" y2="280" stroke="#ece8df" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="190" y1="240" x2="190" y2="285" stroke="#ece8df" stroke-width="2" stroke-linecap="round"/>
+
+                    <!-- Coder Headphones around neck -->
+                    <path d="M 95 210 Q 170 255 245 210" fill="none" stroke="#1d1d1c" stroke-width="20" stroke-linecap="round"/>
+                    <path d="M 95 210 Q 170 255 245 210" fill="none" stroke="#272725" stroke-width="16" stroke-linecap="round"/>
+                    <!-- Earcups -->
+                    <rect x="80" y="190" width="28" height="36" rx="10" fill="#db5a3d" stroke="#141413" stroke-width="2"/>
+                    <rect x="232" y="190" width="28" height="36" rx="10" fill="#db5a3d" stroke="#141413" stroke-width="2"/>
+
+                    <!-- Glowing Laptop in Front -->
+                    <rect x="80" y="280" width="180" height="40" rx="8" fill="url(#laptopGrad)" stroke="#db5a3d" stroke-width="1.5"/>
+                    <!-- Glowing Code Screen Lines -->
+                    <line x1="100" y1="292" x2="160" y2="292" stroke="#8e9b84" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="100" y1="300" x2="200" y2="300" stroke="#db5a3d" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="100" y1="308" x2="140" y2="308" stroke="#d9aa6c" stroke-width="2" stroke-linecap="round"/>
+                    <!-- Apple / Dev Logo on Laptop -->
+                    <polygon points="170,290 176,302 164,302" fill="#ece8df"/>
+                  </g>
+
+                  <!-- Head Group (Rotates and Tilts with Cursor) -->
+                  <g id="character-head-group" transform="translate(170, 130)">
+                    <!-- Neck -->
+                    <rect x="-18" y="38" width="36" height="38" rx="8" fill="#e8bda8"/>
+
+                    <!-- Ears -->
+                    <ellipse cx="-58" cy="2" rx="11" ry="16" fill="#f7dacb"/>
+                    <ellipse cx="58" cy="2" rx="11" ry="16" fill="#f7dacb"/>
+
+                    <!-- Handsome Sculpted Head Base & Jawline -->
+                    <path d="M -54 -40 C -54 -75 -35 -85 0 -85 C 35 -85 54 -75 54 -40 C 54 -10 50 15 36 38 Q 0 60 -36 38 C -50 15 -54 -10 -54 -40 Z" fill="url(#skinGrad)" stroke="#d9a893" stroke-width="1.5"/>
+
+                    <!-- Stylish Handsome Hair (Modern Layered Fade & Fringe) -->
+                    <path d="M -56 -35 C -56 -88 -25 -96 0 -96 C 30 -96 56 -88 56 -35 C 56 -15 52 0 46 15 C 44 -20 35 -70 0 -70 C -35 -70 -44 -20 -46 15 C -52 0 -56 -15 -56 -35 Z" fill="#141413"/>
+                    <!-- Sideburns & Textured Fringe Layer -->
+                    <path d="M -54 -30 Q -40 -70 -10 -75 Q 20 -80 50 -60 Q 30 -50 10 -48 Q -20 -46 -54 -30 Z" fill="#1e1e1c"/>
+                    <path d="M -20 -72 Q 10 -85 35 -65 Q 15 -55 -15 -58 Z" fill="#db5a3d" opacity="0.3"/>
+
+                    <!-- Eyebrows (Masculine & Expressive) -->
+                    <g id="character-eyebrows">
+                      <path id="eyebrow-left" d="M -36 -24 Q -22 -32 -8 -24" fill="none" stroke="#141413" stroke-width="4" stroke-linecap="round"/>
+                      <path id="eyebrow-right" d="M 8 -24 Q 22 -32 36 -24" fill="none" stroke="#141413" stroke-width="4" stroke-linecap="round"/>
+                    </g>
+
+                    <!-- Attractive Almond Eyes & Pupils -->
+                    <g id="character-eyes">
+                      <!-- Left Eye White -->
+                      <path d="M -36 -4 Q -22 -16 -8 -4 Q -22 6 -36 -4 Z" fill="#ffffff" stroke="#242422" stroke-width="1.5"/>
+                      <!-- Left Pupil -->
+                      <circle id="pupil-left" cx="-22" cy="-4" r="6" fill="#141413"/>
+                      <circle id="catchlight-left" cx="-20" cy="-6" r="2.2" fill="#ffffff"/>
+
+                      <!-- Right Eye White -->
+                      <path d="M 8 -4 Q 22 -16 36 -4 Q 22 6 8 -4 Z" fill="#ffffff" stroke="#242422" stroke-width="1.5"/>
+                      <!-- Right Pupil -->
+                      <circle id="pupil-right" cx="22" cy="-4" r="6" fill="#141413"/>
+                      <circle id="catchlight-right" cx="24" cy="-6" r="2.2" fill="#ffffff"/>
+
+                      <!-- Eyelids for blinking -->
+                      <path id="eyelid-left" d="M -37 -4 Q -22 -17 -7 -4 Z" fill="#e8bda8" opacity="0"/>
+                      <path id="eyelid-right" d="M 7 -4 Q 22 -17 37 -4 Z" fill="#e8bda8" opacity="0"/>
+                    </g>
+
+                    <!-- Terracotta Thin Tech Glasses -->
+                    <rect x="-40" y="-18" width="34" height="24" rx="6" fill="none" stroke="#db5a3d" stroke-width="2.5"/>
+                    <rect x="6" y="-18" width="34" height="24" rx="6" fill="none" stroke="#db5a3d" stroke-width="2.5"/>
+                    <line x1="-6" y1="-6" x2="6" y2="-6" stroke="#db5a3d" stroke-width="2.5"/>
+                    <line x1="-40" y1="-6" x2="-56" y2="-10" stroke="#db5a3d" stroke-width="2"/>
+                    <line x1="40" y1="-6" x2="56" y2="-10" stroke="#db5a3d" stroke-width="2"/>
+
+                    <!-- Chiseled Nose -->
+                    <path d="M 0 -8 L -3 12 L 5 12" fill="none" stroke="#c48a73" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+                    <!-- Confident Handsome Smile -->
+                    <path id="character-mouth" d="M -14 26 Q 0 34 14 24" fill="none" stroke="#8a4738" stroke-width="3.2" stroke-linecap="round"/>
+                  </g>
+                </svg>
+
+                <div class="character-footer">
+                  <span class="mono-tag" id="character-status">// status: handsome_coder_online</span>
+                  <span class="mono-label">sanchit_thakur.ai</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. TECHNICAL SKILLS MATRIX (Interactive 2D Physics Canvas + Accessible List) -->
+    <section id="skills" class="section skills-section">
+      <div class="container">
+        <div class="skills-layout">
+          <div class="skills-intro">
+            <div class="section-tag reveal-item">02 / THE TOOLKIT</div>
+            <h2 class="skills-heading reveal-item">Technical Skills Matrix</h2>
+            <p class="skills-subtitle reveal-item">
+              Systematic categorization of frameworks, libraries, and analytical tools. <span class="skills-hint">(Move cursor or drag balls to interact)</span>
+            </p>
+          </div>
+
+          <!-- Category Filter Controls -->
+          <div class="skills-filter-bar reveal-item">
+            <button class="filter-btn active" data-filter="all">all_skills</button>
+            <button class="filter-btn" data-filter="languages">languages</button>
+            <button class="filter-btn" data-filter="datascience">data_science</button>
+            <button class="filter-btn" data-filter="frameworks">frameworks</button>
+            <button class="filter-btn" data-filter="tools">databases_&_tools</button>
+          </div>
+
+          <!-- Interactive Physics Canvas Container -->
+          <div class="skills-canvas-card reveal-item" id="skills-canvas-container">
+            <canvas id="skills-canvas"></canvas>
+            <div class="canvas-controls-hint">
+              <span class="mono-tag">// physics_active: move cursor or drag balls</span>
+              <button id="reset-balls-btn" class="btn-reset-mono" title="Reset Ball Positions">[reset_physics]</button>
+            </div>
+          </div>
+
+          <!-- Accessible Screen Reader / Printable List -->
+          <div class="sr-only-skills print-only">
+            <h3>Languages</h3>
+            <ul>
+              <li>Python</li><li>SQL</li><li>C++</li><li>C</li><li>Java</li><li>HTML / CSS</li>
+            </ul>
+            <h3>Data Science</h3>
+            <ul>
+              <li>NumPy & Pandas</li><li>Scikit-learn</li><li>Matplotlib</li><li>Data Cleaning</li><li>EDA</li><li>Statistical Analysis</li>
+            </ul>
+            <h3>Libraries & Frameworks</h3>
+            <ul>
+              <li>React.js</li><li>Next.js</li><li>Node.js</li>
+            </ul>
+            <h3>Databases & Tools</h3>
+            <ul>
+              <li>MySQL</li><li>Vector Embeddings</li><li>Git / GitHub</li><li>VS Code</li><li>Jupyter Notebooks</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. FEATURED PROJECTS (STAR framework formatted with Sanchit's actual projects) -->
+    <section id="projects" class="section projects-section">
+      <div class="container">
+        <div class="section-header-asym reveal-item">
+          <div class="section-tag">03 / FEATURED PROJECTS</div>
+          <h2 class="projects-heading">Selected Projects</h2>
+          <p class="projects-subtitle">
+            Demonstrating Situation, Task, Action, and Result (STAR) of my work.
+          </p>
+        </div>
+
+        <div class="projects-list">
+
+          <!-- Project 1 -->
+          <article class="project-entry reveal-item">
+            <div class="project-meta-col">
+              <span class="project-num">#01</span>
+              <span class="project-year">[2026]</span>
+            </div>
+            <div class="project-content-col">
+              <h3 class="project-title-serif">Type-To-Write</h3>
+              <p class="project-tagline-serif">AI-Driven Knowledge Retrieval & Note Generator</p>
+
+              <div class="project-tech-badges">
+                <span class="badge-tag">Python</span>
+                <span class="badge-tag">OpenAI Whisper</span>
+                <span class="badge-tag">GPT</span>
+                <span class="badge-tag">Next.js</span>
+                <span class="badge-tag">Vector Embeddings</span>
+              </div>
+
+              <div class="star-details">
+                <p><strong>Situation:</strong> Learning from long educational video lectures is inefficient when trying
+                  to extract handwritten reference notes and query key details.</p>
+                <p><strong>Task:</strong> Build an AI retrieval pipeline to transcribe lecture audio, store context
+                  vectors, and simulate realistic handwriting outputs.</p>
+                <p><strong>Action:</strong> Implemented OpenAI Whisper models for off-line audio transcription, mapped
+                  text segments to high-dimensional vector space for semantic search, and integrated GPT modules for
+                  context answering.</p>
+                <p><strong>Result:</strong> Created a web tool that converts text queries into handwritten note pages
+                  and answers educational video questions in real time.</p>
+              </div>
+
+              <div class="project-actions">
+                <a href="https://github.com/sanchit-thakur-git" target="_blank" rel="noopener" class="project-link-raw">[view_code]</a>
+                <a href="#contact" class="project-link-raw">[request_demo]</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="project-entry reveal-item">
+            <div class="project-meta-col">
+              <span class="project-num">#02</span>
+              <span class="project-year">[2025]</span>
+            </div>
+            <div class="project-content-col">
+              <h3 class="project-title-serif">Student-Analysis Platform</h3>
+              <p class="project-tagline-serif">Interactive Academic Metric & Performance Tracker</p>
+
+              <div class="project-tech-badges">
+                <span class="badge-tag">React.js</span>
+                <span class="badge-tag">Node.js</span>
+                <span class="badge-tag">Chart.js</span>
+                <span class="badge-tag">MongoDB</span>
+              </div>
+
+              <div class="star-details">
+                <p><strong>Situation:</strong> Academic performance indicators were stored statically, leaving
+                  administrators without real-time tracking for attendance and test analysis.</p>
+                <p><strong>Task:</strong> Develop an interactive dashboard suite to visualize performance metrics with
+                  role-based access control.</p>
+                <p><strong>Action:</strong> Designed customized React dashboard grids, integrated Chart.js canvas
+                  elements for trend representation, and configured role-secured MongoDB collections.</p>
+                <p><strong>Result:</strong> Shipped a performance analysis system with secure panels, improving data
+                  insights for students and administrators.</p>
+              </div>
+
+              <div class="project-actions">
+                <a href="https://github.com/sanchit-thakur-git" target="_blank" rel="noopener" class="project-link-raw">[view_code]</a>
+                <a href="#contact" class="project-link-raw">[request_demo]</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="project-entry reveal-item">
+            <div class="project-meta-col">
+              <span class="project-num">#03</span>
+              <span class="project-year">[2025]</span>
+            </div>
+            <div class="project-content-col">
+              <h3 class="project-title-serif">Waste-Management System</h3>
+              <p class="project-tagline-serif">E-Waste Collection & Recycling Logistics Platform</p>
+
+              <div class="project-tech-badges">
+                <span class="badge-tag">Next.js</span>
+                <span class="badge-tag">Node.js</span>
+                <span class="badge-tag">MySQL</span>
+              </div>
+
+              <div class="star-details">
+                <p><strong>Situation:</strong> Electronic recycling centers lacked organized customer interfaces to
+                  coordinate pick-up and secure inventory logs.</p>
+                <p><strong>Task:</strong> Build a clean, secure full-stack portal to document, track, and manage
+                  disposed electronic devices.</p>
+                <p><strong>Action:</strong> Developed Express backend services, integrated MongoDB queries for real-time
+                  inventory counts, and styled Next.js customer modules.</p>
+                <p><strong>Result:</strong> Deployed a functional e-waste collection manager, providing users with
+                  streamlined disposal routing and status tracking.</p>
+              </div>
+
+              <div class="project-actions">
+                <a href="https://github.com/sanchit-thakur-git" target="_blank" rel="noopener" class="project-link-raw">[view_code]</a>
+                <a href="#contact" class="project-link-raw">[request_demo]</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. EDUCATION & CERTIFICATES SECTION -->
+    <section id="education" class="section education-section">
+      <div class="container">
+        <div class="education-layout">
+
+          <div class="edu-text">
+            <div class="section-tag reveal-item">04 / EDUCATION</div>
+            <h2 class="edu-heading reveal-item">Education</h2>
+
+            <div class="edu-entry reveal-item">
+              <div class="edu-header-asym">
+                <h3 class="edu-title">Chandigarh Group of Colleges, Mohali</h3>
+                <span class="edu-meta-year">2024 — 2028 (Expected)</span>
+              </div>
+              <p class="edu-degree-details">B.Tech in Artificial Intelligence & Data Science</p>
+              <p class="edu-description-text">
+                Gaining a core theoretical foundation in machine learning architectures, statistical estimation, and
+                scalable database systems.
+              </p>
+            </div>
+
+            <div class="edu-entry reveal-item" style="margin-top: 32px;">
+              <div class="edu-header-asym">
+                <h3 class="edu-title">HP Board</h3>
+                <span class="edu-meta-year">2022</span>
+              </div>
+              <p class="edu-degree-details">Class 12th (70.0%)</p>
+            </div>
+
+            <div class="edu-entry reveal-item" style="margin-top: 16px;">
+              <div class="edu-header-asym">
+                <h3 class="edu-title">HP Board</h3>
+                <span class="edu-meta-year">2021</span>
+              </div>
+              <p class="edu-degree-details">Class 10th (79.8%)</p>
+            </div>
+          </div>
+
+          <!-- Sanchit's certificates list -->
+          <div class="coursework-panel reveal-item">
+            <h4 class="mono-title">// verified certificates:</h4>
+            <ul class="mono-course-list">
+              <li>Basics of Data Science</li>
+              <li>Introduction to Prompt Engineering</li>
+              <li>C++ Programming (OOP & Problem-Solving)</li>
+              <li>Programming Fundamentals (Python)</li>
+              <li>Professional Writing</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. CONTACT SECTION -->
+    <section id="contact" class="section contact-section">
+      <div class="container">
+        <div class="contact-box reveal-item">
+          <div class="section-tag">05 / GET IN TOUCH</div>
+
+          <h2 class="contact-title">Let's build something together.</h2>
+          <p class="contact-tagline">
+            I am currently looking for software engineering internships and projects. If you have an opening, want to
+            collaborate, or just chat about data models, copy my email or connect on LinkedIn.
+          </p>
+
+          <div class="email-copy-container">
+            <span class="email-address-text" id="email-text">sanchitthakur2345@gmail.com</span>
+            <button class="copy-btn-handmade" id="copy-email-btn" aria-label="Copy email address to clipboard">
+              [copy_email]
+            </button>
+          </div>
+
+          <div class="location-details">
+            <span class="location-dot"></span>
+            <span class="mono-label">location: Mohali, Punjab, India</span>
+          </div>
+
+          <div class="footer-links">
+            <a href="mailto:sanchitthakur2345@gmail.com" class="link-handmade">email</a>
+            <span>/</span>
+            <a href="https://github.com/sanchit-thakur-git" target="_blank" rel="noopener" class="link-handmade">github</a>
+            <span>/</span>
+            <a href="https://www.linkedin.com/in/sanchit-thakur-13121905/" target="_blank" rel="noopener" class="link-handmade">linkedin</a>
+          </div>
+        </div>
+
+        <footer class="site-footer">
+          <p class="copyright-text">
+            © <span id="current-year">2026</span> Sanchit Thakur. Handcrafted using Lora & Space Mono.
+          </p>
+          <button id="back-to-top" class="back-to-top-mono">
+            [back_to_top_↑]
+          </button>
+        </footer>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast" id="toast-notification" aria-live="polite">
+    <span id="toast-message">Copied to clipboard.</span>
+  </div>
+
+  <!-- Three.js 3D Engine -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- JavaScript -->
+  <script src="app.js" type="module"></script>
+</body>
+
+</html>
