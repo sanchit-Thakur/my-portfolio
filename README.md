@@ -13,7 +13,6 @@
 </div>
 
 ---
-
 ## 📌 Overview
 
 Welcome to my portfolio repository! This site showcases my latest projects, technical skills, and achievements in Artificial Intelligence, Data Science, and Full-Stack Web Development.
