@@ -36,7 +36,6 @@ Welcome to my portfolio repository! This site showcases my latest projects, tech
 </div>
 
 ---
-
 ## 🌟 Featured Projects
 
 | Project | Description | Tech Stack | Status |
