@@ -15,7 +15,7 @@
   --border-hover: rgba(236, 232, 223, 0.3);
 
   /* Warm Terracotta Accent */
-  --accent-color: #db5a3d;     /* Terracotta Orange */
+  --accent-color: #e33008;     /* Terracotta Orange */
   --accent-subtle: rgba(219, 90, 61, 0.08);
   
   /* Text colors */
@@ -913,6 +913,18 @@ h1, h2, h3, h4 {
   line-height: 1.6;
 }
 
+.cgpa-pill {
+  display: inline-block;
+  padding: 2px 8px;
+  background: rgba(219, 90, 61, 0.15);
+  border: 1px solid rgba(219, 90, 61, 0.4);
+  border-radius: 4px;
+  font-weight: 700;
+  color: var(--accent-color);
+  font-size: 0.8rem;
+  margin-left: 6px;
+}
+
 .coursework-panel {
   background: var(--glass-bg);
   -webkit-backdrop-filter: blur(var(--glass-blur));
@@ -923,11 +935,22 @@ h1, h2, h3, h4 {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
 }
 
+.achievements-card {
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+.achievements-card .mono-title,
 .coursework-panel .mono-title {
   font-family: var(--font-mono);
   font-size: 0.82rem;
   color: var(--text-dim);
-  margin-bottom: 18px;
+  margin-bottom: 16px;
   text-transform: uppercase;
 }
 

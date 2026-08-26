@@ -153,26 +153,40 @@ function initSkillsCanvas() {
     { name: "Python", category: "languages", color: "#db5a3d", categoryName: "Language" },
     { name: "SQL", category: "languages", color: "#db5a3d", categoryName: "Language" },
     { name: "C++", category: "languages", color: "#db5a3d", categoryName: "Language" },
-    { name: "C", category: "languages", color: "#db5a3d", categoryName: "Language" },
     { name: "Java", category: "languages", color: "#db5a3d", categoryName: "Language" },
+    { name: "C", category: "languages", color: "#db5a3d", categoryName: "Language" },
     { name: "HTML / CSS", category: "languages", color: "#db5a3d", categoryName: "Language" },
+    { name: "TypeScript", category: "languages", color: "#db5a3d", categoryName: "Language" },
 
-    // Data Science (Olive #8e9b84)
-    { name: "NumPy & Pandas", category: "datascience", color: "#8e9b84", categoryName: "Data Science" },
+    // Data Science & ML (Olive #8e9b84)
     { name: "Scikit-learn", category: "datascience", color: "#8e9b84", categoryName: "Data Science" },
+    { name: "PyTorch", category: "datascience", color: "#8e9b84", categoryName: "Data Science" },
+    { name: "Pandas & NumPy", category: "datascience", color: "#8e9b84", categoryName: "Data Science" },
     { name: "Matplotlib", category: "datascience", color: "#8e9b84", categoryName: "Data Science" },
     { name: "Data Cleaning", category: "datascience", color: "#8e9b84", categoryName: "Data Science" },
-    { name: "EDA", category: "datascience", color: "#8e9b84", categoryName: "Data Science" },
+    { name: "EDA & Features", category: "datascience", color: "#8e9b84", categoryName: "Data Science" },
     { name: "Statistical Analysis", category: "datascience", color: "#8e9b84", categoryName: "Data Science" },
+    { name: "Predictive Modeling", category: "datascience", color: "#8e9b84", categoryName: "Data Science" },
+    { name: "Statsmodels", category: "datascience", color: "#8e9b84", categoryName: "Data Science" },
 
-    // Frameworks (Gold #d9aa6c)
+    // Frameworks & AI / LLMs (Gold #d9aa6c)
     { name: "React.js", category: "frameworks", color: "#d9aa6c", categoryName: "Framework" },
-    { name: "Next.js", category: "frameworks", color: "#d9aa6c", categoryName: "Framework" },
-    { name: "Node.js", category: "frameworks", color: "#d9aa6c", categoryName: "Framework" },
+    { name: "Next.js 14", category: "frameworks", color: "#d9aa6c", categoryName: "Framework" },
+    { name: "Node.js & Express", category: "frameworks", color: "#d9aa6c", categoryName: "Framework" },
+    { name: "Redux Toolkit", category: "frameworks", color: "#d9aa6c", categoryName: "Framework" },
+    { name: "Zustand", category: "frameworks", color: "#d9aa6c", categoryName: "Framework" },
+    { name: "LangChain", category: "frameworks", color: "#d9aa6c", categoryName: "AI & LLM" },
+    { name: "OpenAI GPT-4", category: "frameworks", color: "#d9aa6c", categoryName: "AI & LLM" },
+    { name: "Whisper", category: "frameworks", color: "#d9aa6c", categoryName: "AI & LLM" },
+    { name: "RAG Pipelines", category: "frameworks", color: "#d9aa6c", categoryName: "AI & LLM" },
+    { name: "Prompt Eng.", category: "frameworks", color: "#d9aa6c", categoryName: "AI & LLM" },
 
     // Databases & Tools (Bone Cream #ece8df)
     { name: "MySQL", category: "tools", color: "#ece8df", categoryName: "Database & Tool" },
-    { name: "Vector Embeddings", category: "tools", color: "#ece8df", categoryName: "Database & Tool" },
+    { name: "SQLite", category: "tools", color: "#ece8df", categoryName: "Database & Tool" },
+    { name: "MongoDB", category: "tools", color: "#ece8df", categoryName: "Database & Tool" },
+    { name: "Docker", category: "tools", color: "#ece8df", categoryName: "Database & Tool" },
+    { name: "Vector DBs", category: "tools", color: "#ece8df", categoryName: "Database & Tool" },
     { name: "Git / GitHub", category: "tools", color: "#ece8df", categoryName: "Database & Tool" },
     { name: "VS Code", category: "tools", color: "#ece8df", categoryName: "Database & Tool" },
     { name: "Jupyter Notebooks", category: "tools", color: "#ece8df", categoryName: "Database & Tool" }
