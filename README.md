@@ -4,7 +4,7 @@
 
   ![Header Banner](https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=header&text=Sanchit%20Thakur&fontSize=50&animation=fadeIn&fontAlignY=38)
 
-  ### **AI & Data Science Student | Full-Stack Developer | Tech Enthusiast**
+  ### **Data Scientist & AI Engineer | Full-Stack Developer**
 
   [![GitHub Stars](https://img.shields.io/github/stars/sanchit-Thakur/my-portfolio?style=for-the-badge&logo=github&color=gold)](https://github.com/sanchit-Thakur/my-portfolio/stargazers)
   [![GitHub Forks](https://img.shields.io/github/forks/sanchit-Thakur/my-portfolio?style=for-the-badge&logo=github&color=blue)](https://github.com/sanchit-Thakur/my-portfolio/network/members)
@@ -15,7 +15,7 @@
 ---
 ## 📌 Overview
 
-Welcome to my portfolio repository! This site showcases my latest projects, technical skills, and achievements in Artificial Intelligence, Data Science, and Full-Stack Web Development.
+Welcome to my portfolio repository! This site showcases my latest projects, technical skills, and achievements in Artificial Intelligence, Machine Learning, Data Science, and Full-Stack Engineering.
 
 ✨ **Live Demo:** [Visit Portfolio](https://my-portfolio-bice-seven-49.vercel.app/) 
 
@@ -27,11 +27,11 @@ Welcome to my portfolio repository! This site showcases my latest projects, tech
 
 | Domain | Technologies |
 | :--- | :--- |
-| **Languages** | `Python` `Java` `C++` `JavaScript` `SQL` `HTML5` `CSS3` |
-| **Backend & Frameworks** | `Spring Boot` `Flask` `Node.js` `Express` |
-| **AI / ML & Data** |`Pandas` `NumPy` `Scikit-Learn` |
-| **Databases** | `MySQL` |
-| **DevOps & Hosting** | `Git` `GitHub` `Vercel` |
+| **Languages** | `Python` `SQL` `C++` `Java` `C` `TypeScript` `JavaScript` `HTML5` `CSS3` |
+| **Data Science & ML** | `PyTorch` `Scikit-Learn` `Pandas` `NumPy` `Matplotlib` `Statsmodels` `EDA` |
+| **AI & LLMs** | `OpenAI API (GPT-4)` `Whisper` `LangChain` `RAG Pipelines` `Vector Embeddings` |
+| **Web & Frameworks** | `React.js` `Next.js 14` `Node.js` `Express` `Redux Toolkit` `Zustand` `Tailwind CSS` |
+| **Databases & DevOps** | `MySQL` `SQLite` `MongoDB` `Docker` `Git` `GitHub` `Vercel` |
 
 </div>
 
@@ -40,17 +40,20 @@ Welcome to my portfolio repository! This site showcases my latest projects, tech
 
 | Project | Description | Tech Stack | Status |
 | :--- | :--- | :--- | :---: |
-| 🤖 **Nexus RAG** | Autonomous university assistant using Spring Boot, LangChain4j, ChromaDB, and MySQL. | Java, Spring Boot, AI/RAG | `Completed` |
-| 🏋️ **Smart Fitness Pro** | Full-stack fitness tracking and web application platform. | React, Node.js, Vercel | `Active` |
-| 📊 **Gym Management System** | Complete backend database system with local server integration. | Python, Flask, MySQL | `Completed` |
+| 🏋️ **IronPulse Fitness** | Digital workout logging, heavy set tracking, and macro nutritional analytics platform. | React.js, Next.js, Redux Toolkit, Tailwind CSS, Material UI, MongoDB, MySQL | `Completed` |
+| 📄 **PortBuilder** | Automated platform for generating SEO-friendly developer portfolios and ATS-optimized resumes. | Next.js 14, Tailwind CSS, Zustand, Server Actions, SQLite, MySQL | `Completed` |
+| 📈 **Interactive Sales Analytics & Profitability Dashboard** | Predictive time-series ML models (Holt-Winters, Ridge Regression, $R^2=0.978$) with What-If pricing simulation engine. | Next.js, TypeScript, Python, Statsmodels, Recharts, Docker | `Completed` |
+| 🎬 **CINEVERSE** | Modern movie discovery and trailer streaming hub with category filters and watchlists. | Next.js, Node.js, Tailwind CSS, MySQL, TMDB API | `Completed` |
 
 ---
 
 ## ⚡ Features
 
 * 📱 **Fully Responsive:** Looks great on mobile, tablet, and desktop viewports.
-* ⚡ **Fast Performance:** Optimized assets and minimal bundle size.
-* 🎨 **Modern Design:** Clean typography, dark mode UI, and interactive UI elements.
+* ⚛️ **Interactive 2D Skills Canvas:** Physics-based floating skill matrix with category filtering.
+* 📊 **LeetCode & GitHub Integrations:** Real-time stats, problem distribution, and commit contribution matrix.
+* 🎨 **Editorial Dark Mode Design:** Handcrafted palette using Lora serif & Space Mono typography.
+* 📄 **Integrated Resume:** Download and view full verified credentials and resume PDF directly.
 
 ---
 
@@ -60,9 +63,11 @@ To clone and run this portfolio on your local machine:
 
 ```bash
 # 1. Clone the repository
-git clone [https://github.com/sanchit-Thakur/my-portfolio.git](https://github.com/sanchit-Thakur/my-portfolio.git)
+git clone https://github.com/sanchit-Thakur/my-portfolio.git
 
 # 2. Navigate into the project folder
 cd my-portfolio
 
-# 3. Open index.html in your browser (or use Live Server in VS Code)
+# 3. Run a local server
+python3 -m http.server 3000
+```
