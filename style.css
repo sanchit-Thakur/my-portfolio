@@ -306,12 +306,20 @@ h1, h2, h3, h4 {
    5. HERO SECTION
    -------------------------------------------------------------------------- */
 .hero-section {
+  position: relative;
   min-height: 95vh;
   display: flex;
   align-items: center;
   padding-top: calc(var(--header-height) + 60px);
   padding-bottom: 60px;
   border-bottom: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+.hero-container-rel {
+  position: relative;
+  z-index: 2;
+  pointer-events: auto;
 }
 
 .hero-layout {
@@ -1547,5 +1555,1228 @@ h1, h2, h3, h4 {
     gap: 10px;
   }
 }
+
+/* ==========================================================================
+   14. HIGH-LEVEL INTERACTIVE & ANIMATION ENGINE STYLES
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   14.1 Top Scroll Progress Bar
+   -------------------------------------------------------------------------- */
+.scroll-progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: transparent;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.scroll-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #db5a3d, #f39c12, #db5a3d);
+  box-shadow: 0 0 10px rgba(219, 90, 61, 0.8), 0 0 20px rgba(219, 90, 61, 0.4);
+  transition: width 0.05s ease-out;
+  will-change: width;
+}
+
+/* --------------------------------------------------------------------------
+   14.2 Custom Magnetic Fluid Cursor
+   -------------------------------------------------------------------------- */
+.custom-cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background: var(--accent-color);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10001;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.2s ease, transform 0.06s ease-out;
+  box-shadow: 0 0 10px var(--accent-color);
+  will-change: transform;
+}
+
+.custom-cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid rgba(219, 90, 61, 0.55);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  transition: width 0.22s var(--ease-out-expo),
+              height 0.22s var(--ease-out-expo),
+              border-color 0.25s ease,
+              background-color 0.25s ease,
+              transform 0.02s linear;
+  will-change: transform, width, height;
+}
+
+/* Cursor Interactive States */
+body.cursor-hover .custom-cursor-ring {
+  width: 58px;
+  height: 58px;
+  border-color: var(--accent-color);
+  background: rgba(219, 90, 61, 0.08);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+body.cursor-hover .custom-cursor-dot {
+  transform: translate(-50%, -50%) scale(1.4);
+}
+
+body.cursor-active .custom-cursor-ring {
+  width: 26px;
+  height: 26px;
+  background: rgba(219, 90, 61, 0.3);
+  border-color: var(--accent-color);
+}
+
+/* Hide custom cursor on touch / mobile devices */
+@media (hover: none) or (pointer: coarse) {
+  .custom-cursor-dot,
+  .custom-cursor-ring {
+    display: none !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   14.3 Header Controls: Sound & Quick Terminal
+   -------------------------------------------------------------------------- */
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sound-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s var(--ease-out-expo);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+.sound-toggle-btn:hover {
+  border-color: var(--accent-color);
+  color: var(--text-main);
+  box-shadow: 0 0 14px rgba(219, 90, 61, 0.25);
+  transform: translateY(-1px);
+}
+
+.sound-toggle-btn.sound-active {
+  background: rgba(219, 90, 61, 0.14);
+  border-color: var(--accent-color);
+  color: #ffffff;
+  box-shadow: 0 0 16px rgba(219, 90, 61, 0.35);
+}
+
+.terminal-quick-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: rgba(219, 90, 61, 0.12);
+  border: 1px solid rgba(219, 90, 61, 0.4);
+  border-radius: 20px;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--accent-color);
+  cursor: pointer;
+  transition: all 0.2s var(--ease-out-expo);
+}
+
+.terminal-quick-btn:hover {
+  background: var(--accent-color);
+  color: #ffffff;
+  box-shadow: 0 0 18px rgba(219, 90, 61, 0.5);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 640px) {
+  .sound-toggle-btn .sound-label,
+  .terminal-quick-btn .t-text {
+    display: none;
+  }
+  .sound-toggle-btn,
+  .terminal-quick-btn {
+    padding: 6px 10px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   14.4 Hero 3D WebGL Canvas & Background Glow
+   -------------------------------------------------------------------------- */
+.hero-canvas-wrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+#hero-3d-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.hero-canvas-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 75% 40%, transparent 20%, var(--bg-primary) 85%);
+  pointer-events: none;
+}
+
+/* Status Radar Pill */
+.status-radar-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 14px;
+  background: rgba(74, 222, 128, 0.08);
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  border-radius: 24px;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: #4ade80;
+  margin-bottom: 12px;
+  width: fit-content;
+  backdrop-filter: blur(8px);
+}
+
+.radar-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 10px #4ade80;
+  position: relative;
+  display: inline-block;
+}
+
+.radar-dot::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1.5px solid #4ade80;
+  animation: radarPing 1.8s infinite cubic-bezier(0, 0, 0.2, 1);
+}
+
+@keyframes radarPing {
+  0% { transform: scale(0.6); opacity: 1; }
+  100% { transform: scale(2.6); opacity: 0; }
+}
+
+/* Kinetic Text Scramble & Terminal Cursor */
+.hero-scramble-text {
+  display: inline-block;
+  position: relative;
+  min-width: 260px;
+}
+
+.hero-scramble-text::after {
+  content: '_';
+  color: var(--accent-color);
+  animation: blinkCursor 0.85s infinite;
+  font-weight: 300;
+  margin-left: 2px;
+}
+
+@keyframes blinkCursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* --------------------------------------------------------------------------
+   14.5 Avatar Speech Bubble & Equalizer Bars
+   -------------------------------------------------------------------------- */
+.avatar-speech-bubble {
+  position: absolute;
+  top: -42px;
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  background: var(--bg-secondary);
+  border: 1px solid var(--accent-color);
+  border-radius: 12px;
+  padding: 8px 16px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-main);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: all 0.35s var(--ease-out-expo);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 20px rgba(219, 90, 61, 0.25);
+  z-index: 15;
+}
+
+.avatar-speech-bubble.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.avatar-speech-bubble .bubble-arrow {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 10px;
+  height: 10px;
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--accent-color);
+  border-bottom: 1px solid var(--accent-color);
+}
+
+.sound-eq-bars {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 12px;
+  margin-left: auto;
+}
+
+.sound-eq-bars span {
+  width: 2.5px;
+  height: 100%;
+  background: var(--accent-color);
+  border-radius: 2px;
+  animation: eqBounce 1.2s infinite ease-in-out alternate;
+}
+
+.sound-eq-bars span:nth-child(1) { animation-delay: 0s; height: 4px; }
+.sound-eq-bars span:nth-child(2) { animation-delay: 0.25s; height: 10px; }
+.sound-eq-bars span:nth-child(3) { animation-delay: 0.1s; height: 7px; }
+.sound-eq-bars span:nth-child(4) { animation-delay: 0.35s; height: 12px; }
+
+@keyframes eqBounce {
+  0% { height: 2px; opacity: 0.4; }
+  100% { height: 12px; opacity: 1; }
+}
+
+/* --------------------------------------------------------------------------
+   14.6 3D Perspective Card Tilt & Holographic Sheen
+   -------------------------------------------------------------------------- */
+.card-tilt {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  position: relative;
+  will-change: transform;
+  transition: transform 0.14s ease-out, box-shadow 0.25s ease-out;
+}
+
+.sheen-glare {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle 320px at var(--sheen-x, 50%) var(--sheen-y, 50%),
+    rgba(255, 255, 255, 0.12),
+    rgba(219, 90, 61, 0.08),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  mix-blend-mode: screen;
+  z-index: 5;
+}
+
+.card-tilt:hover .sheen-glare {
+  opacity: 1;
+}
+
+.project-entry.card-tilt {
+  padding: 32px;
+  border-radius: 14px;
+  background: rgba(29, 29, 28, 0.4);
+  border: 1px solid var(--glass-border);
+  margin-bottom: 24px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.project-entry.card-tilt:hover {
+  border-color: rgba(219, 90, 61, 0.35);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), 0 0 30px rgba(219, 90, 61, 0.12);
+}
+
+/* --------------------------------------------------------------------------
+   14.7 Interactive Terminal Modal & Floating FAB
+   -------------------------------------------------------------------------- */
+.terminal-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.28s var(--ease-out-expo);
+  padding: 20px;
+}
+
+.terminal-modal.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.terminal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 9, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.terminal-window {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  max-height: 80vh;
+  background: #141413;
+  border: 1px solid rgba(219, 90, 61, 0.45);
+  border-radius: 12px;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.8), 0 0 45px rgba(219, 90, 61, 0.28);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: scale(0.94) translateY(12px);
+  transition: transform 0.28s var(--ease-out-expo);
+  z-index: 2;
+}
+
+.terminal-modal.open .terminal-window {
+  transform: scale(1) translateY(0);
+}
+
+.terminal-titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  background: #1b1b1a;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  user-select: none;
+}
+
+.terminal-traffic-lights {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.t-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: filter 0.15s;
+}
+
+.t-dot:hover {
+  filter: brightness(1.2);
+}
+
+.t-red { background: #ff5f56; }
+.t-yellow { background: #ffbd2e; }
+.t-green { background: #27c93f; }
+
+.terminal-shortcut-hint {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+}
+
+.terminal-body {
+  padding: 18px;
+  overflow-y: auto;
+  flex: 1;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: #ece8df;
+  line-height: 1.6;
+  min-height: 280px;
+  max-height: 480px;
+}
+
+.terminal-line {
+  margin-bottom: 8px;
+}
+
+.terminal-line.command-echo {
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+.terminal-line.output-text {
+  color: #cfcac0;
+}
+
+.terminal-line.success-text {
+  color: #4ade80;
+}
+
+.terminal-line.error-text {
+  color: #ef4444;
+}
+
+.terminal-ascii {
+  font-size: 9px;
+  line-height: 1.1;
+  color: var(--accent-color);
+  font-family: monospace;
+  overflow-x: auto;
+  margin-bottom: 12px;
+  white-space: pre;
+}
+
+.t-welcome {
+  color: #ece8df;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.t-sub {
+  color: var(--text-dim);
+  font-size: 0.78rem;
+}
+
+.t-cmd {
+  color: #d9aa6c;
+  font-weight: bold;
+  background: rgba(217, 170, 108, 0.12);
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+.terminal-input-row {
+  display: flex;
+  align-items: center;
+  padding: 12px 18px;
+  background: #181817;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  gap: 10px;
+  font-family: var(--font-mono);
+}
+
+.t-prompt {
+  color: #8e9b84;
+  font-weight: 600;
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+
+.terminal-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ece8df;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+.terminal-send-btn {
+  background: rgba(219, 90, 61, 0.2);
+  border: 1px solid var(--accent-color);
+  color: var(--text-main);
+  font-family: var(--font-mono);
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  transition: all 0.15s;
+  cursor: pointer;
+}
+
+.terminal-send-btn:hover {
+  background: var(--accent-color);
+  color: #ffffff;
+}
+
+/* Floating Terminal FAB */
+.floating-terminal-fab {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 900;
+  background: var(--bg-secondary);
+  border: 1.5px solid var(--accent-color);
+  color: var(--accent-color);
+  border-radius: 30px;
+  padding: 10px 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(219, 90, 61, 0.3);
+  transition: all 0.25s var(--ease-out-expo);
+  cursor: pointer;
+}
+
+.floating-terminal-fab:hover {
+  background: var(--accent-color);
+  color: #ffffff;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 35px rgba(219, 90, 61, 0.55);
+}
+
+/* Matrix Digital Rain Canvas */
+.matrix-rain-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1040;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.matrix-rain-canvas.active {
+  opacity: 0.9;
+  pointer-events: auto;
+}
+
+/* --------------------------------------------------------------------------
+   14.8 Micro-Animations
+   -------------------------------------------------------------------------- */
+
+/* Animated Odometer Numbers & Donut Glow */
+.counter-value {
+  display: inline-block;
+  will-change: contents;
+  transition: color 0.3s ease;
+}
+
+.donut-segment {
+  transition: stroke-dashoffset 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(0 0 8px rgba(219, 90, 61, 0.6));
+}
+
+/* ==========================================================================
+   ✦✦✦ LEVEL 2: INSANE ANIMATION & EFFECTS ENGINE ✦✦✦
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   15. PRELOADER — Morphing Shapes + Counter + Bar
+   -------------------------------------------------------------------------- */
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: #0a0a09;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.preloader.loaded {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.preloader-morph {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #db5a3d 0%, #d9aa6c 50%, #8e9b84 100%);
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  animation: morphBlob 2.4s infinite ease-in-out;
+  filter: blur(0px);
+  box-shadow: 0 0 60px rgba(219, 90, 61, 0.6), 0 0 120px rgba(219, 90, 61, 0.2);
+}
+
+@keyframes morphBlob {
+  0%   { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; transform: rotate(0deg) scale(1); }
+  25%  { border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%; transform: rotate(45deg) scale(1.1); }
+  50%  { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; transform: rotate(90deg) scale(0.95); }
+  75%  { border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%; transform: rotate(135deg) scale(1.05); }
+  100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; transform: rotate(180deg) scale(1); }
+}
+
+.preloader-text {
+  font-family: var(--font-mono);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: 6px;
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+}
+
+.preloader-name {
+  background: linear-gradient(90deg, #db5a3d, #d9aa6c, #ece8df);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmerText 2s infinite linear;
+  background-size: 200% 100%;
+}
+
+@keyframes shimmerText {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.preloader-dot {
+  color: var(--accent-color);
+  animation: pulseDot 0.8s infinite alternate;
+}
+
+@keyframes pulseDot {
+  0% { opacity: 0.3; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1.3); }
+}
+
+.preloader-counter {
+  font-size: 1.1rem;
+  color: var(--text-dim);
+  font-variant-numeric: tabular-nums;
+  min-width: 2.2em;
+  text-align: right;
+}
+
+.preloader-pct {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+.preloader-bar-track {
+  width: 260px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.preloader-bar-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #db5a3d, #d9aa6c);
+  border-radius: 4px;
+  transition: width 0.1s linear;
+  box-shadow: 0 0 12px rgba(219, 90, 61, 0.7);
+}
+
+/* --------------------------------------------------------------------------
+   16. PAGE TRANSITION WIPE
+   -------------------------------------------------------------------------- */
+.page-transition-wipe {
+  position: fixed;
+  inset: 0;
+  z-index: 99998;
+  display: flex;
+  pointer-events: none;
+}
+
+.wipe-slice {
+  flex: 1;
+  background: #0a0a09;
+  transform: scaleY(0);
+  transform-origin: top;
+}
+
+/* --------------------------------------------------------------------------
+   17. AMBIENT FLOATING PARTICLES CANVAS
+   -------------------------------------------------------------------------- */
+.ambient-particles-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.55;
+}
+
+/* --------------------------------------------------------------------------
+   18. CURSOR TRAIL CANVAS
+   -------------------------------------------------------------------------- */
+.cursor-trail-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9998;
+  mix-blend-mode: screen;
+}
+
+/* --------------------------------------------------------------------------
+   19. GLITCH TEXT EFFECT ON HOVER
+   -------------------------------------------------------------------------- */
+.glitch-text {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.glitch-text:hover::before {
+  opacity: 0.8;
+  color: #db5a3d;
+  animation: glitchShift1 0.3s cubic-bezier(.25,.46,.45,.94) both infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+}
+
+.glitch-text:hover::after {
+  opacity: 0.8;
+  color: #8e9b84;
+  animation: glitchShift2 0.3s cubic-bezier(.25,.46,.45,.94) reverse both infinite;
+  clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
+}
+
+@keyframes glitchShift1 {
+  0%   { transform: translate(0); }
+  20%  { transform: translate(-3px, 2px); }
+  40%  { transform: translate(3px, -1px); }
+  60%  { transform: translate(-2px, -2px); }
+  80%  { transform: translate(2px, 3px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes glitchShift2 {
+  0%   { transform: translate(0); }
+  20%  { transform: translate(3px, -2px); }
+  40%  { transform: translate(-3px, 1px); }
+  60%  { transform: translate(2px, 2px); }
+  80%  { transform: translate(-2px, -3px); }
+  100% { transform: translate(0); }
+}
+
+/* --------------------------------------------------------------------------
+   20. ANIMATED GRADIENT BORDER ON CARDS
+   -------------------------------------------------------------------------- */
+.gradient-border-card {
+  position: relative;
+  z-index: 1;
+  --gradient-angle: 0deg;
+  animation: rotateGradientVar 4s linear infinite;
+}
+
+.gradient-border-card:hover {
+  outline: 2px solid transparent;
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.45),
+    0 0 0 2px rgba(219, 90, 61, 0.6),
+    0 0 30px rgba(219, 90, 61, 0.2),
+    inset 0 0 30px rgba(219, 90, 61, 0.05);
+  border-color: rgba(219, 90, 61, 0.5) !important;
+}
+
+@keyframes rotateGradientVar {
+  0%   { --gradient-angle: 0deg; }
+  100% { --gradient-angle: 360deg; }
+}
+
+@property --gradient-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* --------------------------------------------------------------------------
+   21. KINETIC SECTION DIVIDERS — Animated Lines
+   -------------------------------------------------------------------------- */
+.section-divider {
+  position: relative;
+  width: 100%;
+  height: 1px;
+  margin: 0;
+  overflow: hidden;
+}
+
+.section-divider::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-color), #d9aa6c, transparent);
+  transform: translateX(-100%);
+  animation: none;
+}
+
+.section-divider.animate::before {
+  animation: slideDivider 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideDivider {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(0); }
+}
+
+/* --------------------------------------------------------------------------
+   22. STAGGERED REVEAL DIRECTIONS
+   -------------------------------------------------------------------------- */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo);
+  will-change: opacity, transform;
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo);
+  will-change: opacity, transform;
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo);
+  will-change: opacity, transform;
+}
+
+.reveal-rotate {
+  opacity: 0;
+  transform: translateY(30px) rotate(3deg);
+  transition: opacity 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo);
+  will-change: opacity, transform;
+}
+
+.reveal-left.revealed,
+.reveal-right.revealed,
+.reveal-scale.revealed,
+.reveal-rotate.revealed {
+  opacity: 1;
+  transform: none;
+}
+
+/* --------------------------------------------------------------------------
+   23. NEON GLOW PULSE ON STATS
+   -------------------------------------------------------------------------- */
+.neon-glow {
+  text-shadow: 0 0 7px rgba(219, 90, 61, 0.6),
+               0 0 14px rgba(219, 90, 61, 0.4),
+               0 0 28px rgba(219, 90, 61, 0.2);
+  animation: neonPulse 2.5s infinite alternate;
+}
+
+@keyframes neonPulse {
+  0%   { text-shadow: 0 0 7px rgba(219, 90, 61, 0.6), 0 0 14px rgba(219, 90, 61, 0.4), 0 0 28px rgba(219, 90, 61, 0.2); }
+  100% { text-shadow: 0 0 10px rgba(219, 90, 61, 0.9), 0 0 20px rgba(219, 90, 61, 0.6), 0 0 40px rgba(219, 90, 61, 0.35), 0 0 80px rgba(219, 90, 61, 0.15); }
+}
+
+/* --------------------------------------------------------------------------
+   24. MAGNETIC BUTTON RIPPLE EFFECT
+   -------------------------------------------------------------------------- */
+.magnetic-item {
+  display: inline-block;
+  will-change: transform;
+  transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.magnetic-item .ripple-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(219, 90, 61, 0.35);
+  transform: scale(0);
+  animation: rippleExpand 0.6s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes rippleExpand {
+  0%   { transform: scale(0); opacity: 1; }
+  100% { transform: scale(4); opacity: 0; }
+}
+
+/* --------------------------------------------------------------------------
+   25. FLOATING BADGE GLOW ON HERO
+   -------------------------------------------------------------------------- */
+.status-radar-pill {
+  animation: floatBadge 3.5s ease-in-out infinite;
+}
+
+@keyframes floatBadge {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* --------------------------------------------------------------------------
+   26. PARALLAX DEPTH LAYERS
+   -------------------------------------------------------------------------- */
+.parallax-layer {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+/* --------------------------------------------------------------------------
+   27. ENHANCED HERO TITLE ANIMATION
+   -------------------------------------------------------------------------- */
+.hero-title {
+  overflow: hidden;
+}
+
+.hero-title .char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(100%) rotateX(-90deg);
+  animation: charReveal 0.8s var(--ease-out-expo) forwards;
+}
+
+@keyframes charReveal {
+  0%   { opacity: 0; transform: translateY(100%) rotateX(-90deg); }
+  100% { opacity: 1; transform: translateY(0) rotateX(0); }
+}
+
+/* --------------------------------------------------------------------------
+   28. SCROLL-TRIGGERED SECTION ZOOM
+   -------------------------------------------------------------------------- */
+.section-zoom {
+  transform: scale(0.96);
+  opacity: 0.7;
+  transition: transform 0.7s var(--ease-out-expo), opacity 0.7s var(--ease-out-expo);
+}
+
+.section-zoom.in-view {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   29. SKILL BADGE HOVER EXPLOSION
+   -------------------------------------------------------------------------- */
+.badge-tag {
+  transition: all 0.25s var(--ease-out-expo);
+  cursor: default;
+}
+
+.badge-tag:hover {
+  background: var(--accent-color) !important;
+  color: #ffffff !important;
+  border-color: var(--accent-color) !important;
+  transform: translateY(-3px) scale(1.08);
+  box-shadow: 0 8px 25px rgba(219, 90, 61, 0.45), 0 0 15px rgba(219, 90, 61, 0.2);
+}
+
+/* --------------------------------------------------------------------------
+   30. SMOOTH SCROLL SNAP INDICATOR PULSE
+   -------------------------------------------------------------------------- */
+.scroll-indicator {
+  animation: scrollPulse 2.5s infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.6; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(8px); }
+}
+
+.down-arrow {
+  display: inline-block;
+  animation: arrowBounce 1.8s infinite;
+}
+
+@keyframes arrowBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+/* --------------------------------------------------------------------------
+   31. PROJECT CARD HOVER LIFT
+   -------------------------------------------------------------------------- */
+.project-entry {
+  transition: all 0.4s var(--ease-out-expo);
+}
+
+.project-entry:hover {
+  transform: translateY(-8px) scale(1.01);
+}
+
+.project-entry:hover .project-num {
+  color: var(--accent-color);
+  text-shadow: 0 0 12px rgba(219, 90, 61, 0.5);
+}
+
+/* --------------------------------------------------------------------------
+   32. LOGO ANIMATION
+   -------------------------------------------------------------------------- */
+.logo-mono {
+  position: relative;
+  overflow: hidden;
+}
+
+.logo-mono::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-color);
+  transition: width 0.3s var(--ease-out-expo);
+}
+
+.logo:hover .logo-mono::after {
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   33. NAV LINK HOVER GLOW
+   -------------------------------------------------------------------------- */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--accent-color);
+  transform: translateX(-50%);
+  transition: width 0.3s var(--ease-out-expo);
+  box-shadow: 0 0 8px rgba(219, 90, 61, 0.5);
+}
+
+.nav-link:hover::before,
+.nav-link.active::before {
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   34. SMOOTH PAGE LOAD BODY REVEAL
+   -------------------------------------------------------------------------- */
+body.page-loaded main,
+body.page-loaded .site-header {
+  opacity: 1;
+  transform: none;
+}
+
+body:not(.page-loaded) main {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease 0.1s, transform 0.8s var(--ease-out-expo) 0.1s;
+}
+
+body:not(.page-loaded) .site-header {
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: opacity 0.6s ease 0.2s, transform 0.6s var(--ease-out-expo) 0.2s;
+}
+
+body.page-loaded main {
+  transition: opacity 0.8s ease, transform 0.8s var(--ease-out-expo);
+}
+
+body.page-loaded .site-header {
+  transition: opacity 0.6s ease 0.1s, transform 0.6s var(--ease-out-expo) 0.1s;
+}
+
+/* --------------------------------------------------------------------------
+   35. ENHANCED CONTACT SECTION GLOW
+   -------------------------------------------------------------------------- */
+.contact-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-section::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(219, 90, 61, 0.12) 0%, transparent 60%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* --------------------------------------------------------------------------
+   36. EDUCATION TIMELINE GLOW
+   -------------------------------------------------------------------------- */
+.education-timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2px;
+  height: 0%;
+  background: linear-gradient(180deg, var(--accent-color), #d9aa6c);
+  transition: height 1.5s var(--ease-out-expo);
+  box-shadow: 0 0 12px rgba(219, 90, 61, 0.5);
+}
+
+.education-timeline.revealed::before {
+  height: 100%;
+}
+
+/* Accessibility: Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .card-tilt {
+    transform: none !important;
+  }
+  .preloader {
+    display: none !important;
+  }
+}
+
 
 
